@@ -234,3 +234,30 @@
 //     person
 // };
 // ---------------------------------------------------------------------
+// PATH
+// const path = require('path');
+
+// const file_path = path.join('/content','abc_folder','text.txt');
+// console.log(file_path);
+// //basically path.join method concatenates whatever structure name is 
+// // given to it in a forward order
+
+// const base = path.basename(file_path); //returns the last directory in path
+// console.log(base); 
+
+// const absolute = path.resolve('folder', 'my_doc.txt');
+// console.log(absolute); //.resolve() method concatenates and gives the absolute path 
+
+// -----------------------------------------------------------------------
+// ReadFile and WriteFile Sync
+
+const fs = require('fs');
+
+const first = fs.readFileSync('./folder/sample.txt', 'utf8');
+const second = fs.readFileSync('./folder/second.txt', 'utf8');
+
+console.log(first);
+console.log(second);
+
+
+
