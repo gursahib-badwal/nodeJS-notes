@@ -220,3 +220,17 @@
 // git setup done 
 // ===========================================================================================
 
+
+// item_array = ["item1", "item2", "item3"];
+// person = {
+//     name: "Gursahib",
+//     gender: "male",
+//     id: 1234
+// }
+// //works in context to second.js  
+// //Will eventually have more practice with exporting modules 
+// module.exports = {
+//     item_array,
+//     person
+// };
+// ---------------------------------------------------------------------
