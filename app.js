@@ -234,7 +234,7 @@
 //     person
 // };
 // ---------------------------------------------------------------------
-// PATH
+// //PATH
 // const path = require('path');
 
 // const file_path = path.join('/content','abc_folder','text.txt');
@@ -251,13 +251,15 @@
 // -----------------------------------------------------------------------
 // ReadFile and WriteFile Sync
 
-const fs = require('fs');
+// const fs = require('fs');
 
-const first = fs.readFileSync('./folder/sample.txt', 'utf8');
-const second = fs.readFileSync('./folder/second.txt', 'utf8');
+// const first = fs.readFileSync('./folder/sample.txt', 'utf8');
+// const second = fs.readFileSync('./folder/second.txt', 'utf8');
 
-console.log(first);
-console.log(second);
+// console.log(first);
+// console.log(second);
+// console.log("Oye pols aa gyi pols!!");
+
 
 
 
