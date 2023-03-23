@@ -262,14 +262,48 @@
 
 // -----------------------------------------------------------------------------------------
 // Express
-const express = require("express");
+// const express = require("express");
+// const app = express();
+
+// app.get('/', (req,res) => {
+//     res.status(200).send("Home Page");
+// })
+
+// app.get('/about', (req,res) => {
+//     res.status(200).send("About Page");
+// })
+
+// app.all('*', (req,res) => {
+//     res.status(404).send("<h2>Resource not found!</h1>");
+// })
+
+
+// app.listen("5000", ()=> {
+//     console.log("The server is listening on port 5000...");
+// })
+// --------------------------------------------------------------------------------
+
+const express = require('express');
 const app = express();
 
-app.get('/', (req,res) => {
+//Middleware
+const logger = (req, res, next) =>{
+    const method = req.method;
+    const url = req.url;
+    const time = new Date().getFullYear();
+    console.log(method, url, time);
+    next();
+}
+
+
+app.get('/', logger,(req,res) => {
     res.send("Home Page");
 })
 
-app.listen("5000", ()=> {
-    console.log("The server is listening on port 5000...");
+app.get('/about', logger, (req,res) => {
+    res.send("About Page");
 })
 
+app.listen("5000", () => {
+    console.log("Running on server 5000...");
+});
