@@ -283,27 +283,46 @@
 // })
 // --------------------------------------------------------------------------------
 
+// const express = require('express');
+// const app = express();
+
+// //Middleware
+// const logger = require('./logger');
+// app.use(logger); //app.use() invokes the middleware for all the routes (app.get....)
+
+// //So instead of putting the logger function within all the get requests
+// //We can simply just PUT THE MIDDLEWARE IN APP.USE()
+
+// // app.get('/', logger,(req,res) => {
+// //     res.send("Home Page");
+// // })
+
+// // app.get('/about', logger, (req,res) => {
+// //     res.send("About Page");
+// // })
+
+// app.get('/',(req,res) => {
+//     res.send("Home Page");
+// })
+
+// app.get('/about', (req,res) => {
+//     res.send("About Page");
+// })
+// app.listen("5000", () => {
+//     console.log("Running on server 5000...");
+// });
+
+// -------------------------------------------------------------------------------------------
+
 const express = require('express');
 const app = express();
-
-//Middleware
-const logger = (req, res, next) =>{
-    const method = req.method;
-    const url = req.url;
-    const time = new Date().getFullYear();
-    console.log(method, url, time);
-    next();
-}
+let {people} = require('./data');
 
 
-app.get('/', logger,(req,res) => {
-    res.send("Home Page");
+app.get('/api/people', (req,res) => {
+    res.status(200).json({success: true, data: people})
 })
 
-app.get('/about', logger, (req,res) => {
-    res.send("About Page");
+app.listen('5000', () => {
+    console.log("Server is listening on port 5000...");
 })
-
-app.listen("5000", () => {
-    console.log("Running on server 5000...");
-});
